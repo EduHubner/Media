@@ -1,0 +1,42 @@
+<!DOCTYPE html><!--Começo-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Media Alunos</title>
+</head>
+<body>
+    <h1>Calcular a Media de Alunos</h1>
+    <form id="inicio" action="#" method="post"> <!--Pega as informações sobre o aluno-->
+        <label>Nome do Aluno:</label>
+        <input type="text" id="nome" required> 
+        <br>
+        <label>Nota 1:</label>
+        <input type="text" pattern="[0-9]+$" id="nota1" required>
+
+        <label>Nota 2:</label>
+        <input type="text" pattern="[0-9]+$" id="nota2" required>
+
+        <label>Nota 3:</label>
+        <input type="text" pattern="[0-9]+$" id="nota3" required>
+        <br>
+        <input type="button" value="Salvar" id="salvar"><!--Salva-->
+        <input type="reset" value="Limpar" id="limpar"><!--Limpa-->
+        <br>
+        <input type="text" id="media"><!--Passa a media-->
+    </form>
+    <script lang="JavaScript" src="media.js"></script><!--Chama a pasta com as funçoes de media.js-->
+    <script lang="JavaScript">
+        document.getElementById('salvar').onclick = function () {//caso seja clicado em salvar inicia a função
+            let vmedia = SalvarAlunos(document.getElementById("nome").value, document.getElementById("nota1").value,
+                                    document.getElementById("nota2").value, document.getElementById("nota3").value);//passa para a função salvar alunos os valores passado acima
+            document.getElementById('media').value = vmedia;//escreve no input id="media", o return da função
+        }
+        document.getElementById('limpar').onclick = function () {//caso seja clicado em limpar, chama a função LimparMediaAlunos
+            LimparMediaAlunos();
+        }
+    </script>
+</body>
+</html>
